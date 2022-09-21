@@ -61,6 +61,4 @@ while True:
     move_circle(x,y)
     move_square(x,y)
     
-    
 close_canvas()
-
