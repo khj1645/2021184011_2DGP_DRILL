@@ -21,21 +21,39 @@ def handle_events():
                 dirX -= 1
             elif event.key == SDLK_DOWN:
                 dirY -= 1
+                if anim == 3:
+                    anim = 1
+                elif anim == 2:
+                    anim = 0
             elif event.key == SDLK_UP:
                 dirY += 1
+                if anim == 3:
+                    anim = 1
+                elif anim == 2:
+                    anim = 0
             elif event.key == SDLK_ESCAPE:
                 running = False
 
         elif event.type == SDL_KEYUP:
             if event.key == SDLK_RIGHT:
-                anim = 3
+                if anim == 1:
+                    anim = 3
                 dirX -= 1
             elif event.key == SDLK_LEFT:
-                anim = 2
+                if anim == 0:
+                    anim = 2
                 dirX += 1
             elif event.key == SDLK_DOWN:
+                if anim == 1 and dirX != 1:
+                    anim = 3
+                elif anim == 0 and dirX != -1:
+                    anim = 2
                 dirY += 1
             elif event.key == SDLK_UP:
+                if anim == 1 and dirX != 1:
+                    anim = 3
+                elif anim == 0 and dirX != -1:
+                    anim = 2
                 dirY -= 1
 
 
