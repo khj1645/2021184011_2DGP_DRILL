@@ -36,11 +36,11 @@ def handle_events():
 
         elif event.type == SDL_KEYUP:
             if event.key == SDLK_RIGHT:
-                if anim == 1:
+                if anim == 1 and dirY == 0:
                     anim = 3
                 dirX -= 1
             elif event.key == SDLK_LEFT:
-                if anim == 0:
+                if anim == 0 and dirY == 0:
                     anim = 2
                 dirX += 1
             elif event.key == SDLK_DOWN:
